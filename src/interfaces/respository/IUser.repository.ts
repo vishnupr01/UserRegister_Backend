@@ -4,6 +4,7 @@ export interface IUserRepository{
   checkEmailExists(email: string): Promise<Boolean>
   phoneNumberExists(phone:string):Promise<Boolean>
   createUser(data: IData): Promise<IUser>
+  getUserByEmail(email: string): Promise<IUser | null> 
   
   
 }

@@ -37,5 +37,14 @@ export class UserRepository implements IUserRepository{
       throw error
     }
   }
+
+  async getUserByEmail(email: string): Promise<IUser | null> {
+    try {
+      const user = await userModel.findOne({ email });
+      return user;
+    } catch (error) {
+      throw error;
+    }
+  }
   
 }

@@ -11,4 +11,7 @@ const userController = new UserController(userUseCase)
 router.post('/register', (req: Request, res: Response, next: NextFunction) => {
   userController.register(req, res, next)
 })
+router.get('/findData/:email', (req: Request, res: Response, next: NextFunction) => {
+  userController.getUserByEmail(req, res, next)
+})
 export default router

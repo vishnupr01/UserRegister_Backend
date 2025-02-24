@@ -88,6 +88,14 @@ export class UserUseCase implements IUserUseCase {
       return { success: false, errors: ["Error registering user"] };
     }
   }
+  async getUserByEmail(email: string): Promise<IUser | null> {
+    try {
+      return await this.userRepository.getUserByEmail(email);
+    } catch (error) {
+      console.error("Error fetching user by email:", error);
+      throw new Error("Failed to retrieve user data.");
+    }
+  }
   
 
 }
